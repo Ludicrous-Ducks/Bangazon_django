@@ -8,6 +8,10 @@ from django.urls import reverse
 
 class TestCaseLogin(TestCase):
 	def test_login_view_with_username_password(self):
+		"""
+		This is the test for login view to post username and user password to be able to log in
+		
+		"""
 
 		user_test = User.objects.create_user(username = "jkc", password="jkc123456")
 		user = {'username': "jkc", "password": "jkc12345678"}
