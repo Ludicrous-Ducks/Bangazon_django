@@ -1,11 +1,11 @@
 {%extends 'bangazon_ui/index.html'%}
 {%block content%}
-<form class ="" action="{% url 'bangazon_ui:list' %}" method="post">
+<form class = "" action="{% url 'bangazon_ui:list' %}" method="post">
 	{%csrf_token%}
 	<input type="text" name='username' value="" placeholder="Enter username">
 	<input type="text" name='password' value="" placeholder="Enter password">
 	<button type="submit">Submit</button>
 </form>
-<p>Not a user register<a href="{%url 'bangazon_ui_app:register'%}">HERE </a></p>
+
 
 {%endblock%}

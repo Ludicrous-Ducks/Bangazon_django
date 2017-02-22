@@ -1,11 +1,12 @@
 from django.conf.urls import url
-from . import views
+import sys
+sys.path.append('../')
+from bangazon_ui.views import login_view
 
 
 app_name = 'bangazon_ui'
 urlpatterns = [
-url(r'^list$', views.home, name="home"),
-url(r'^register/$', views.register_view.Register, name='register'),
-url(r'^login/$', views.login_view.Login, name='login'),
-url(r'^logout/$', views.login_view.logout_user, name="logout"),
+
+url(r'^login/$', login_view.Login.as_view(), name='login'),
+url(r'^logout/$', login_view.logout_user, name="logout"),
 ]
