@@ -1,6 +1,6 @@
 {%extends 'bangazon_ui/index.html'%}
 {%block content%}
-<form class = "" action="{%url 'bangazon_ui:list'%}" method="post">
+<form class = "" action="{% url 'bangazon_ui:list' %}" method="post">
 	{%csrf_token%}
 	<input type="text" name='username' value="" placeholder="Enter username">
 	<input type="text" name='password' value="" placeholder="Enter password">
