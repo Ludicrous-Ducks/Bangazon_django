@@ -10,12 +10,12 @@ from bangazon_ui.models.customer_model import Customer
 class Register(TemplateView):
     """
     """
-    template_name = 'tutorial_app/register.html'
+    template_name = 'bangazon_ui/registration.html'
 
 
     def post(self, request):
         """
-         
+        
         """
         data = request.POST
         current_user = User.objects.create_user(
@@ -35,4 +35,4 @@ class Register(TemplateView):
             phone=data['phone']
         )
         return HttpResponseRedirect(redirect_to='/login')
-        return HttpResponse()
+        # return HttpResponse()
