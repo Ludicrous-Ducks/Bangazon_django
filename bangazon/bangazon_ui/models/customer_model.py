@@ -1,5 +1,11 @@
-from django.contrib.auth.models import User
+
+import sys
+sys.path.append("../")
 from django.db import models
+
+from django.contrib.auth.models import User
+
+
 
 class Customer(models.Model):
     """
@@ -18,6 +24,7 @@ class Customer(models.Model):
 
     def __str__(self):
         return '{}'.format(self.user.username)
+
 
 
 
