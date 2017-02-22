@@ -8,6 +8,8 @@ from bangazon_ui.models.customer_model import Customer
 
 
 class Register(TemplateView):
+    """
+    """
     template_name = 'tutorial_app/register.html'
 
 
@@ -33,3 +35,4 @@ class Register(TemplateView):
             phone=data['phone']
         )
         return HttpResponseRedirect(redirect_to='/login')
+        return HttpResponse()
