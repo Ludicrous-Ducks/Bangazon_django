@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^', include('bangazon_ui.urls'), name='bangazon_ui'),
     url(r'^admin/', admin.site.urls),
+    url(r'^bangazon/', include('bangazon_ui.urls')),
 ]
