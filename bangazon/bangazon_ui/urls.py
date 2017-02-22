@@ -1,7 +1,8 @@
 from django.conf.urls import url
 from . import views
 
-app_name = 'bangazon_ui_app'
+
+app_name = 'bangazon_ui'
 urlpatterns = [
 url(r'^list$', views.home, name="home"),
 url(r'^register/$', views.register_view.Register, name='register'),
