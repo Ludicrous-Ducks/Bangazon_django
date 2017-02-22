@@ -17,7 +17,23 @@ class TestRegisterView(TestCase):
         """
         The register view should return 200 if the post worked!
         """
-        response = self.client.get(reverse('bangazon_ui:register'))
-        self.assertEqual(response.status_code, 200)
+
+        customer = {
+            'first_name': "Dani",
+            'last_name': "Dani",
+            'username': "danidani",
+            'email': 'd@d.com',
+            'password': 'password',
+            'address': "3040 NSS Drive",
+            'city': "Nashville",
+            'state': "TN",
+            'zip_code': "12345",
+            'phone': "123456789"
+            }
+
+        response = self.client.post(reverse('bangazon_ui:register'), customer)
+        print(response)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, "/login")
 
         
