@@ -11,6 +11,7 @@ class Customer(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=20)
+    phone = models.CharField(max_length=20)
 
     class Meta:
         verbose_name_plural = "Customers"
