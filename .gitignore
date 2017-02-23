@@ -2,3 +2,5 @@ __pycache__
 *.sqlite
 *.sqlite3
 *.db
+.DS_Store
+**/.DS_Store
