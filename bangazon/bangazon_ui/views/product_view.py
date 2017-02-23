@@ -19,7 +19,7 @@ def create_product(request):
         price=data['price'],
         description=data['description'],
         quantity=data['quantity'],
-        product_type =product_type,
+        product_type =product_type[0],
         customer=request.user)
     return HttpResponseRedirect(redirect_to='/list')
 
