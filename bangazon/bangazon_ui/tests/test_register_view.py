@@ -32,7 +32,6 @@ class TestRegisterView(TestCase):
             }
 
         response = self.client.post(reverse('bangazon_ui:register'), customer)
-        print(response)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, "/login")
 
