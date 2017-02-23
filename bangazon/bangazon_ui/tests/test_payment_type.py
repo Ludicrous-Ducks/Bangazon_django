@@ -47,3 +47,18 @@ class TestPaymentType(TestCase):
         self.assertEqual(payment.ccv,"111")
         self.assertEqual(payment.expiration_date, "2017-01-01")
 
+    def test_payment_type_returns_posted_data(self):
+        payment_test = {
+            'customer' = 'customer_id',
+            'payment_type' = 'Visa',
+            'account_number' = '12345678',
+            'ccv' = '123',
+            'expiration_date' = '2017-01-01'
+            }
+
+        response = self.client.post(reverse('bangazon_ui:cart'), payment_test)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, "/order")
+        # assertContains("random string from order summary page that I know will be there")
+
+
