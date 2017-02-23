@@ -11,7 +11,7 @@ from bangazon_ui.models.order_model import Order
 class TestOrderModel(TestCase): 
 
     """
-    This is a test  
+    This is a test to build implementation code for the Order Model. 
 
     """
 
@@ -51,6 +51,7 @@ def test_order(self):
     product= product,
     )
 
+# Check to see if there  is an object instance of Customer / PaymentType/ Product
     self.assertIsInstance(order.customer, Customer)
     self.assertIsInstance(order.payment_type, PaymentType)
     self.assertIsInstance(order.product, Product)

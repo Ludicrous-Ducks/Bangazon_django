@@ -10,7 +10,7 @@ from bangazon_ui.models.product_model import Product
 
 class Order (models.Model):
     """
-    The Order table pulls information from PaymentType 
+    The Order table pulls information from PaymentType and Product via a join 
     """
 
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
