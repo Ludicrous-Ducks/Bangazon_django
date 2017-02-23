@@ -1,6 +1,6 @@
 {% extends 'bangazon_ui/index.html' %}
 {% block content %}
-<h1> Register New </h1>
+<h2>Register New Customer</h2>
 <form class="" action="{% url 'bangazon_ui:register' %}" method="post">
     {% csrf_token %}
     <input type="text" name="first_name" value="" placeholder="First Name"><br />
