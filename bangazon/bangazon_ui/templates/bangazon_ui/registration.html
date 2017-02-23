@@ -3,11 +3,16 @@
 <h1> Register New </h1>
 <form class="" action="{% url 'bangazon_ui:register' %}" method="post">
     {% csrf_token %}
-    <input type="text" name="username" value="" placeholder="username">
-    <input type="text" name="email" value="" placeholder="email">
-    <input type="text" name="password" value="" placeholder="password">
-    <input type="text" name="first_name" value="" placeholder="first_name">
-    <input type="text" name="last_name" value="" placeholder="last_name">
+    <input type="text" name="first_name" value="" placeholder="First Name"><br />
+    <input type="text" name="last_name" value="" placeholder="Last Name"><br />
+    <input type="text" name="email" value="" placeholder="Email"><br />
+    <input type="text" name="address" value="" placeholder="Street Address"><br />
+    <input type="text" name="city" value="" placeholder="City"><br />
+    <input type="text" name="state" value="" placeholder="State"><br />
+    <input type="text" name="zip" value="" placeholder="Zip Code"><br />
+    <input type="text" name="phone" value="" placeholder="Phone Number"><br />
+    <input type="text" name="username" value="" placeholder="username"><br />
+    <input type="text" name="password" value="" placeholder="password"><br />
     <button type="submit" name="button">Submit</button>
 </form>
 
