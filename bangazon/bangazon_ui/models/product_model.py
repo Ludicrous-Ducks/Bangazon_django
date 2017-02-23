@@ -1,3 +1,5 @@
+import sys
+sys.path.append("../")
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -12,7 +14,7 @@ class Product(models.Model):
     Variables:
         created: the current local date and time of creation
         name: the product's name
-        
+
         customer: the foreign key of the user, related_name is for the PaymentMethod model: related_name should be lowercase, pluralized model name
     """
     created = models.DateTimeField(auto_now_add=True)
@@ -27,7 +29,7 @@ class Product(models.Model):
         return self.name
         """
         Method to create a string representing a Product sold/bought by a particular User(customer)
-     
+
         """
 
     class Meta:

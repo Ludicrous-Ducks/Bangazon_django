@@ -1,3 +1,5 @@
+import sys
+sys.path.append("../")
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -5,7 +7,7 @@ from django.utils import timezone
 
 class ProductType(models.Model):
 
-    """ 
+    """
     This class is to represent a category of products on Bangazon
     Extension of models.Model
     Variables:
