@@ -3,7 +3,6 @@ sys.path.append("../")
 from django.db import models
 from .product_type_model import ProductType
 from django.contrib.auth.models import User
-from django.utils import timezone
 
 
 class Product(models.Model):
