@@ -1,6 +1,7 @@
 import sys
 sys.path.append("../")
 from django.db import models
+from .product_type_model import ProductType
 from django.contrib.auth.models import User
 from django.utils import timezone
 
@@ -22,7 +23,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=20, decimal_places=2)
     description = models.TextField(max_length=300, default='')
     quantity = models.IntegerField()
-    product_type =models.ForeignKey("ProductType", related_name="products", on_delete=models.CASCADE)
+    product_type =models.ForeignKey(ProductType, related_name="products", on_delete=models.CASCADE)
     customer =models.ForeignKey(User, related_name="products", on_delete=models.CASCADE)
 
     def __str__(self):
