@@ -3,6 +3,8 @@ import sys
 sys.path.append('../')
 from bangazon_ui.views import register_view
 from bangazon_ui.views import login_view
+from bangazon_ui.views import product_view
+from bangazon_ui.views import product_type_view
 
 app_name = 'bangazon_ui'
 urlpatterns = [
