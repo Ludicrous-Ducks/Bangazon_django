@@ -1,4 +1,4 @@
-{% extends 'products/index.html' %}
+{% extends 'bangazon_ui/index.html' %}
 {% block content %}
 
 {% if product_list %}
@@ -10,7 +10,7 @@
         <li>Quantity: {{product.price}}</li>
         <li>Product_Type: {{product.product_type}}</li>
 
-        <!-- <li>User: {{product.user}}</li> -->
+        <li>User: {{product.user}}</li>
     {% endfor %}
     </ul>
 {% else %}
