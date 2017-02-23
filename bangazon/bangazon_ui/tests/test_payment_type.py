@@ -20,7 +20,8 @@ class TestPaymentType(TestCase):
         user = User.objects.create_user(
             first_name="Dani",
             last_name="Dani",
-            username="danidani"
+            username="danidani",
+            password="asdf1234"
             )
 
         customer = Customer.objects.create(
@@ -40,6 +41,7 @@ class TestPaymentType(TestCase):
             expiration_date="2017-01-01"
             )
 
+        self.assertIsInstance(payment.customer, Customer)
         self.assertEqual(payment.payment_type, "Visa")
         self.assertEqual(payment.account_number, "12345678")
         self.assertEqual(payment.ccv,"111")
