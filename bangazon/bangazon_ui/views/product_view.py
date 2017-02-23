@@ -13,7 +13,7 @@ def home(request):
 
 def create_product(request):
     data = request.POST
-    product_type = ProductType.objects.get(label=data['label'])
+    product_type = ProductType.objects.get_or_create(label=data['label'])
     Product.objects.create(
         name=data['name'],
         price=data['price'],
