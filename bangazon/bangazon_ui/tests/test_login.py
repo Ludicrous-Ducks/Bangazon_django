@@ -12,7 +12,8 @@ class TestCaseLogin(TestCase):
     def test_login_view_with_username_password(self):
         """
         This is the test for login view to post username and user password to be able to log in
-
+        response.status code is 302 which means redirecting successful
+        user will be redirected to the list page, non user will be redirected to the register page
         """
 
         user_test = User.objects.create_user(username = "jkc", password="jkc12345678")
