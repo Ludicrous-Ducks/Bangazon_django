@@ -64,7 +64,6 @@ class TestOrderModel(TestCase):
         order.product.add(product)
         order.save()
         # We needed the print statement to display where the Queryset was returning inside the Terminal after running 'manage.py test'
-        print("these are the goods", order.product.all())
 
         # Check to see if there  is an object instance of Customer / PaymentType/ Product
         self.assertIsInstance(order.customer, Customer)
