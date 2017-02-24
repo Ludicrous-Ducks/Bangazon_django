@@ -32,3 +32,10 @@ class PaymentTypeView(TemplateView):
         return HttpResponseRedirect(redirect_to='/order')
 
 
+
+
+
+
+
+
+
