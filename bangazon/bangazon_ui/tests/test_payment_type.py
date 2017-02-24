@@ -47,3 +47,4 @@ class TestPaymentType(TestCase):
         self.assertEqual(payment.ccv,"111")
         self.assertEqual(payment.expiration_date, "2017-01-01")
 
+
