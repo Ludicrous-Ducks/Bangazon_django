@@ -43,12 +43,14 @@ class TestProductDetailView(TestCase):
             customer=test_customer,
             product_type=test_product_type)
 
-        print(ProductDetailView.get_context_data(pk=1))
+        print(ProductDetailView.get(pk=1))
+        response = ProductDetailView.get(pk=1)
+        self.assertQuerysetEqual(response.context['object_list'], ['<Product: Baseball>'])
 
-        detail = ProductDetailView.get_details(product_pk=1)
-        self.assertEqual(detail['name'], "lego")
-        self.assertEqual(detail['product_type'], "Toys")
-        self.assertEqual(detail['description'], "ultimate lego set")
-        self.assertEqual(detail['quantity'], "2")
-        self.assertEqual(detail['price'], "100.00")
-        self.assertEqual(detail['customer'], "danidani")
+        # detail = ProductDetailView.get_details(product_pk=1)
+        # self.assertEqual(detail['name'], "lego")
+        # self.assertEqual(detail['product_type'], "Toys")
+        # self.assertEqual(detail['description'], "ultimate lego set")
+        # self.assertEqual(detail['quantity'], "2")
+        # self.assertEqual(detail['price'], "100.00")
+        # self.assertEqual(detail['customer'], "danidani")

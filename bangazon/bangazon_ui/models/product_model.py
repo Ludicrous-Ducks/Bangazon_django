@@ -36,3 +36,7 @@ class Product(models.Model):
     class Meta:
         ordering =('name', )
 
+
+    def get_absolute_url(self):
+        return reverse('initial_site:product_detail', args=[str(self.id)])
+

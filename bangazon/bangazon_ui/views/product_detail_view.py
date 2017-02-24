@@ -15,28 +15,11 @@ class ProductDetailView(TemplateView):
     """
 
     template_name = 'bangazon_ui/product_detail_view'
+    model = Product
     
-    def get(pk):
-        """
-        A method to return the desired populated template
-        """
-
-        product = Product.objects.get(pk=product_pk)
-        customer = Customer.objects.get(pk=product.customer.pk)
-        product_type = ProductType.objects.get(pk=product.product_type.pk)
-        product_details = {
-            'name': product.name,
-            'product_type': product.product_type.__str__(),
-            'description': product.description,
-            'quantity': str(product.quantity),
-            'price': str(product.price),
-            'customer': product.customer.user.username,
-            'created': product.created.date().__str__()
-        }
-        # return HttpResponse()
-        return product_details
-
-    def get_context_data(self, **kwargs):
-        context = super(ProductDetailView, self).get_context_data(**kwargs)
-        # context['latest_articles'] = Article.objects.all()[:5]
-        return context
+    # def get(self, request, pk):
+    #     """
+    #     A method to return the desired populated template
+    #     """
+        
+    #     return HttpResponse()
