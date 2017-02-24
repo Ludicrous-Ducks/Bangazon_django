@@ -43,6 +43,8 @@ class TestProductDetailView(TestCase):
             customer=test_customer,
             product_type=test_product_type)
 
+        print(ProductDetailView.get_context_data(pk=1))
+
         detail = ProductDetailView.get_details(product_pk=1)
         self.assertEqual(detail['name'], "lego")
         self.assertEqual(detail['product_type'], "Toys")
