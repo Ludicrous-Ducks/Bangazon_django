@@ -24,13 +24,15 @@ class Create_product(TemplateView):
 
     def post(self, request):
         data = request.POST
-        product_type = ProductType.objects.get_or_create(label=data['label'])
-        Product.objects.create(
+        product_type = product_type_model.ProductType.objects.get_or_create(label=data['label'])
+        customer = customer_model.Customer.objects.get(user=request.user)
+        product_model.Product.objects.create(
             name=data['name'],
             price=data['price'],
             description=data['description'],
             quantity=data['quantity'],
             product_type =product_type[0],
-            customer=request.user)
+            customer=customer
+            )
         return HttpResponseRedirect(redirect_to='/list')
 
