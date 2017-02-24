@@ -1,0 +1,26 @@
+{% extends 'bangazon_ui/index.html' %}
+{% block content %}
+<h2>{{object.name}}</h2>
+<ul>
+    <li>
+      <span class="sold-by-label">Sold by: </span>
+      <span class="seller-name">{{object.customer.user.username}}</span>
+    </li>
+    <li>
+      <span class="category-label">Category: </span>
+      <span class="category">{{object.product_type.label}}</span>
+    </li>
+    <li>
+      <span class="description-label">Description: </span>
+      <p class="description">{{object.description}}</p>
+    </li>
+    <li>
+      <span class="qty-label">Quantity Available: 
+      <span class="qty-avail">{{object.quantity}}
+    </li>
+    <li>
+      <span class="price-label">Price: </span>
+      <span class="price">$ {{object.price}}</span>
+    </li>
+</ul>
+{% endblock %}

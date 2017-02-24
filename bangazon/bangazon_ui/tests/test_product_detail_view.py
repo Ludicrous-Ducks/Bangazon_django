@@ -45,7 +45,5 @@ class TestProductDetailView(TestCase):
             customer=test_customer,
             product_type=test_product_type)
 
-        response = self.client.get(reverse('bangazon_ui:product'))
-        print(response)
-        print(response.context())
-        self.assertQuerysetEqual(response.context[''], [''])
+        response = self.client.get(reverse('bangazon_ui:product_detail', args=([test_product.pk])))
+        self.assertEqual(response.context['product'].name, 'lego')
