@@ -21,12 +21,11 @@ class Login(TemplateView):
         user=authenticate(
             username=username,
             password=password)
-        print(user)
         if user is not None:
             login(request=request, user=user)
         else:
-            return HttpResponseRedirect(redirect_to='/')
-        return HttpResponseRedirect(redirect_to='/')
+            return HttpResponseRedirect(redirect_to='/register')
+        return HttpResponseRedirect(redirect_to='/list')
 
 def logout_user(request):
     logout(request)
