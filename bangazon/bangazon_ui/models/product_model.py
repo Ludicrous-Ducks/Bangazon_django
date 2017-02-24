@@ -23,7 +23,7 @@ class Product(models.Model):
     description = models.TextField(max_length=300, default='')
     quantity = models.IntegerField()
     product_type =models.ForeignKey(ProductType, related_name="products", on_delete=models.CASCADE)
-    customer =models.ForeignKey(User, related_name="products", on_delete=models.CASCADE)
+    customer =models.ForeignKey(Customer, related_name="products", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
