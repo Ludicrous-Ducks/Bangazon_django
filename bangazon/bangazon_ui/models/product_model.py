@@ -16,7 +16,7 @@ class Product(models.Model):
         created: the current local date and time of creation
         name: the product's name
         
-        customer: the foreign key of the user, related_name is for the PaymentMethod model: related_name should be lowercase, pluralized model name
+        customer: the foreign key of Customer class
     """
     created = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=100, blank=True, default="")
