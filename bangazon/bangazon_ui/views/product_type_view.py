@@ -12,13 +12,15 @@ def product_type(request):
     return render(request, 'bangazon_ui/product_type_list.html', context)
 
 
-def create_product_type(request):
-    data = request.POST
-    ProductType.objects.create(
-        label=data['label'])
+class Create_product_type(TemplateView):
 
-    return HttpResponseRedirect(redirect_to='/product_type_list')
+    template_name = 'bangazon_ui/create_product_type.html'
+
+    def post(self, request):
+        data = request.POST
+        ProductType.objects.create(
+            label=data['label'])
+
+        return HttpResponseRedirect(redirect_to='/product_type_list')
 
 
-def template_to_create_product_type(request):
-    return render(request, 'bangazon_ui/create_product_type.html')
