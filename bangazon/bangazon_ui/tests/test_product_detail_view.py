@@ -6,6 +6,8 @@ from bangazon_ui.models.customer_model import Customer
 from bangazon_ui.models.product_model import Product
 from bangazon_ui.models.product_type_model import ProductType
 from bangazon_ui.views.product_detail_view import ProductDetailView
+from django.urls import reverse
+
 
 
 class TestProductDetailView(TestCase):
@@ -43,9 +45,9 @@ class TestProductDetailView(TestCase):
             customer=test_customer,
             product_type=test_product_type)
 
-        print(ProductDetailView.get(pk=1))
-        response = ProductDetailView.get(pk=1)
-        self.assertQuerysetEqual(response.context['object_list'], ['<Product: Baseball>'])
+        response = self.client.get(reverse('bangazon_ui:product', 1))
+        print(response)
+        self.assertQuerysetEqual(response.context[''], [''])
 
         # detail = ProductDetailView.get_details(product_pk=1)
         # self.assertEqual(detail['name'], "lego")
