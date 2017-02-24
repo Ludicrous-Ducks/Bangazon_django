@@ -2,8 +2,8 @@ import sys
 sys.path.append("../")
 from django.db import models
 from .product_type_model import ProductType
+from .customer_model import Customer
 from django.contrib.auth.models import User
-from django.utils import timezone
 
 
 class Product(models.Model):
@@ -16,7 +16,9 @@ class Product(models.Model):
         created: the current local date and time of creation
         name: the product's name
         
-        customer: the foreign key of the user, related_name is for the PaymentMethod model: related_name should be lowercase, pluralized model name
+        customer: the foreign key of Customer class
+
+    Author: Julia Kim-Chung
     """
     created = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=100, blank=True, default="")
@@ -24,7 +26,7 @@ class Product(models.Model):
     description = models.TextField(max_length=300, default='')
     quantity = models.IntegerField()
     product_type =models.ForeignKey(ProductType, related_name="products", on_delete=models.CASCADE)
-    customer =models.ForeignKey(User, related_name="products", on_delete=models.CASCADE)
+    customer =models.ForeignKey(Customer, related_name="products", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
