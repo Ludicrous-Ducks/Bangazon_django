@@ -1,4 +1,5 @@
 from django.test import TestCase
+
 import sys
 sys.path.append('../')
 from bangazon_ui.models.customer_model import Customer
