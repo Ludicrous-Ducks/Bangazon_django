@@ -34,5 +34,5 @@ class Create_product(TemplateView):
             product_type =product_type[0],
             customer=customer
             )
-        return HttpResponseRedirect(redirect_to='/list')
+        return HttpResponseRedirect(redirect_to='/product_type_list')
 
