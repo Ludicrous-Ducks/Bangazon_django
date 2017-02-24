@@ -2,6 +2,7 @@ import sys
 sys.path.append("../")
 from django.db import models
 from .product_type_model import ProductType
+from .customer_model import Customer
 from django.contrib.auth.models import User
 
 
