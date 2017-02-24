@@ -17,6 +17,8 @@ class Product(models.Model):
         name: the product's name
         
         customer: the foreign key of Customer class
+
+    Author: Julia Kim-Chung
     """
     created = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=100, blank=True, default="")

@@ -7,6 +7,10 @@ from django.contrib.auth import logout, login, authenticate
 
 
 class Login(TemplateView):
+    """
+    This class is to post user with a username and password to make login possible using post method. This class will use login.html template for users to enter username and password. Once posted it'll redirect to the next page
+    Author: Julia Kim-Chung
+    """
     template_name = 'bangazon_ui/login.html'
 
     def post(self, request):

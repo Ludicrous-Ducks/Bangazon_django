@@ -9,6 +9,7 @@ from django.contrib.auth import logout, login, authenticate
 def product_type(request):
     """
         This method is to list product type in the product_type_list page
+        Author: Julia Kim-Chung
     """
     product_type_list = ProductType.objects.order_by("label")[:20]
     context = {'product_type_list': product_type_list,}

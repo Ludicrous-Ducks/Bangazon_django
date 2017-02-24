@@ -9,6 +9,7 @@ from django.contrib.auth import logout, login, authenticate
 def home(request):
     """
         This is a method to list all products
+        Author: Julia Kim-Chung
     """
     product_list = Product.objects.order_by('created')[:20]
     context = {'product_list': product_list,}

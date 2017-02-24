@@ -11,6 +11,8 @@ class ProductType(models.Model):
     Extension of models.Model
     Variables:
         label: the Product type's name
+        
+    Author: Julia Kim-Chung
     """
     label = models.CharField(max_length=50, blank=True, unique=True)
 
@@ -18,8 +20,8 @@ class ProductType(models.Model):
         return self.label
 
     """
-    Method to create a string representing a Product Category of
-    Bangazon API
+    Method to create a string representing a Product Type 
+    
     """
 
     class Meta:
