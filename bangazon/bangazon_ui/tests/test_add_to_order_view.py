@@ -3,8 +3,11 @@ import sys
 sys.path.append('../')
 from django.contrib.auth.models import User
 from bangazon_ui.models.customer_model import Customer
-# from bangazon_ui.models.order_model import Order
-from bangazon_ui.views.add_to_order_view import AddToOrderView
+from bangazon_ui.models.payment_type_model import PaymentType
+from bangazon_ui.models.product_type_model import ProductType
+from bangazon_ui.models.product_model import Product
+from bangazon_ui.models.order_model import Order
+from bangazon_ui.views.add_to_order_view import *
 from django.urls import reverse
 
 
@@ -58,7 +61,11 @@ class TestAddToOrder(TestCase):
             customer=customer,
             payment_type= payment,
         )
-        
-        response = self.client.post(reverse('bangazon_ui:add_to_order'), customer)
-        self.assertEqual(response.content, 'You Added a Product!')
-        self.assertEqual(response.url, "/login")
+
+        to_add = {'product_pk': 1}
+
+        self.client.force_login(user)
+
+        response = self.client.post(reverse('bangazon_ui:add_to_order'), to_add)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.content, b'You Added a Product!')
