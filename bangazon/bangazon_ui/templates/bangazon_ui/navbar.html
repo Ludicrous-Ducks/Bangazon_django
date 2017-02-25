@@ -1,0 +1,9 @@
+{% extends 'bangazon_ui/index.html' %}
+{% block content %}
+{% csrf_token %}
+<nav>
+  <ul>
+    <li><button type="button" name="my-order">My Order {{count}}</button></li>
+  </ul>
+</nav>
+{% endblock %}
