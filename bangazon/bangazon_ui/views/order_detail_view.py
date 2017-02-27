@@ -17,8 +17,6 @@ class OrderDetail(TemplateView):
   
   def get_context_data(self, **kwargs):
 
-
-
     order_list = order_model.Order.objects.get(pk =kwargs['order_id'])
     product_list = order_list.product.all()
     context = {'order_list': order_list, 'product_list': product_list}

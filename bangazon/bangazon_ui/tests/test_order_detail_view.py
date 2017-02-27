@@ -8,7 +8,6 @@ from bangazon_ui.models.product_type_model import ProductType
 from bangazon_ui.models.order_model import Order
 from django.contrib.auth.models import User
 from django.urls import reverse
-from django.db.models import F, Count
 
 # from bangazon_ui.models.orders_model import Orders
 
@@ -71,12 +70,7 @@ class TestOrderDetailView(TestCase):
 
 
 
-        # queryset = self.order.objects.all().order_by('product_id').filter(product_id = self.product.pk)
-        # queryset_p = self.product.objects.all()
-        # products = self.product.annotate(Count(self.product.pk))
-        # print(products)
-
-
+        
 
         
         
