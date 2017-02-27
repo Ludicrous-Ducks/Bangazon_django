@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^product_type/', product_type_view.Create_product_type.as_view(), name='product_type'),
     url(r'^add_to_order/', add_to_order, name='add_to_order'),
     url(r'^product_type_list/', product_type_view.product_type, name='product_type_list'),
-    url(r'^order_detail/$', order_detail_view.OrderDetail.as_view(), name = 'order_detail')
+    url(r'^order_detail/$', order_detail_view.OrderDetail.as_view(), name = 'order_detail'),
     url(r'^product_list/(?P<pk>[0-9]+)/$', product_list_view.ProductListView.as_view(), name='product_list'),
 
 ]
