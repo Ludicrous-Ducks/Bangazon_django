@@ -8,8 +8,31 @@
   box-shadow: inset 0 0 3em rgba(20, 49, 83, 0.8);
 }
 
+.bang-nav p {
+  float: left;
+  margin-left: 5px;
+}
+
 .nav-btn {
-  min-width: 100px;
-  min-height: 8vh;
-  margin-top: 1vh;
+  float: right;
+  background-color: lightblue;
+  color: black;
+  font-weight: bolder;
+  font-size: 1.5em;
+  border: 1px solid black;
+  width: 150px;
+  height: 50px;
+  margin-top: 5px;
+}
+
+.main-body {
+  margin-top: 12.5vh;
+}
+
+.nav-list {
+  list-style: none;
+}
+
+.nav-list li {
+  display: inline;
 }
