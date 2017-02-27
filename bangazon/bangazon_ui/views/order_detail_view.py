@@ -18,7 +18,6 @@ class OrderDetail(TemplateView):
   template_name = 'bangazon_ui/order_detail_view.html'
   
   def get_context_data(self, **kwargs):
-    print("what is kwargs?", kwargs)
     customer = customer_model.Customer.objects.get(user = self.request.user.pk)
     order_list = order_model.Order.objects.get(customer =customer.pk)
     payment_type_list = payment_type_model.PaymentType.objects.filter(customer = customer.pk)
