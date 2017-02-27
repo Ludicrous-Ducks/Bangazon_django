@@ -1,5 +1,14 @@
 {% extends 'bangazon_ui/index.html'%}
 {% block content %}
-"Hello Are you there?"
-
+<h2>"Hello Are you there?"</h2>
+<h3>{{object.customer.name}}</h3>
+<ul>
+  {% for item in object.product %}
+  <li>
+    <h4>{{item.name}}</h4>
+  </li>
+  <li>
+    <h4>{{item.price}}</h4>
+  </li>
+</ul>
 {% endblock %}
