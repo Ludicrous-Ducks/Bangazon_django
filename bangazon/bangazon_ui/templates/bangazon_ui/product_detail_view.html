@@ -27,8 +27,7 @@
 
 <form class="" action="{% url 'bangazon_ui:add_to_order' %}" method="post">
 {% csrf_token %}
-  <button type="submit">Add This to My Order!
-    <input type="submit" value="{{object.pk}}" name="product_pk"/>
+  <button type="submit" value="{{object.pk}}" name="product_pk">Add This to My Order!
   </button>
 </form>
 
