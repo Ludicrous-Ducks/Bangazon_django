@@ -15,7 +15,7 @@ class PaymentType(models.Model):
     payment_type = models.CharField(max_length=100)
     account_number = models.CharField(max_length=16, unique=True)
     ccv = models.CharField(max_length=3)
-    expiration_date = models.DateField()
+    expiration_date = models.CharField(max_length=10)
 
     class Meta:
         verbose_name_plural = 'PaymentTypes'
