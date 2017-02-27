@@ -1,5 +1,7 @@
 {% extends 'bangazon_ui/index.html'%}
 {% block content %}
-"Hello Are you there?"
+{% if context %}
+{%for object in context%}
 
+{%endif}
 {% endblock %}

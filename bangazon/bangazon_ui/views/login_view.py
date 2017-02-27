@@ -25,7 +25,7 @@ class Login(TemplateView):
             login(request=request, user=user)
         else:
             return HttpResponseRedirect(redirect_to='/register')
-        return HttpResponseRedirect(redirect_to='/list')
+        return HttpResponseRedirect(redirect_to='/product_type_list')
 
 def logout_user(request):
     logout(request)
