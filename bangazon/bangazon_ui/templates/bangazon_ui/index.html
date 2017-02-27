@@ -3,11 +3,28 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Django My Products</title>
-    <link rel="stylesheet" hre="{%static 'main.css'%}">
+    <title>Bangazon</title>
+    <link rel="stylesheet" href="{%static 'main.css'%}">
   </head>
   <body>
-    {% block content %}{% endblock %}
+    <nav class="bang-nav">
+      <h1>Bangazon</h1>
+      <ul class="nav-list">
+        <li class="nav-btn">
+          <a href="{% url 'bangazon_ui:logout' %}">
+            Logout
+          </a>
+        </li>
+        <li class="nav-btn">
+          <a href="{% url 'bangazon_ui:product_type_list' %}">
+            Product Categories
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="main-body">
+      {% block content %}{% endblock %}
+    </div>
     <script type="text/javascript" src="{%static 'main.js'%}"></script>
   </body>
 </html>
