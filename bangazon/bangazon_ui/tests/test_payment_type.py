@@ -4,6 +4,7 @@ from django.test import TestCase
 from bangazon_ui.models.payment_type_model import PaymentType
 from bangazon_ui.models.payment_type_model import Customer
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class TestPaymentType(TestCase):
@@ -20,7 +21,7 @@ class TestPaymentType(TestCase):
             password="asdf1234"
             )
 
-        customer = Customer.objects.create(
+        self.customer = Customer.objects.create(
             user=user,
             address="3040 NSS Drive",
             city="Nashville",
@@ -30,12 +31,14 @@ class TestPaymentType(TestCase):
             )
 
         payment = PaymentType.objects.create(
-            customer=customer,
+            customer=self.customer,
             payment_type="Visa",
             account_number="12345678",
             ccv="111",
             expiration_date="01/2017"
             )
+
+        self.client.login(username="danidani", password="asdf1234")
 
     def test_payment_type_returns_defined_fields(self):
         """
@@ -56,14 +59,15 @@ class TestPaymentType(TestCase):
         Author: Dani Adkins
         """
         payment_test = {
+            'customer' : self.customer,
             'payment_type':'Visa',
-            'account_number':'12345678',
+            'account_number':'12345679',
             'ccv':'123',
             'expiration_date':'01/2017'
             }
 
-        response = self.client.post(('bangazon_ui:payment_type_create'), payment_test)
-        self.assertEqual(response.status_code, 404)
-        # self.assertEqual(response.url, "/order")
-        # assertContains("random string from order summary page that I know will be there")
+        response = self.client.post(reverse('bangazon_ui:payment_type_create'), payment_test)
+        self.assertEqual(response.status_code, 302)
+        print(response)
+        self.assertEqual(response.url, "/order")
 
