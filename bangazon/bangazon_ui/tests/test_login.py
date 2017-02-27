@@ -21,7 +21,7 @@ class TestCaseLogin(TestCase):
         response = self.client.post(reverse('bangazon_ui:login'), user)
 
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, "/list")
+        self.assertEqual(response.url, "/product_type_list")
 
 
     def test_login_view_with_non_customer_username_password(self):
