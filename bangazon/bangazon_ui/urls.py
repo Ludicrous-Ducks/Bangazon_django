@@ -8,6 +8,7 @@ from bangazon_ui.views import product_view
 from bangazon_ui.views import product_type_view
 from bangazon_ui.views.product_detail_view import ProductDetailView
 from bangazon_ui.views.add_to_order_view import *
+from bangazon_ui.views import order_detail_view
 
 app_name = 'bangazon_ui'
 urlpatterns = [
@@ -21,4 +22,5 @@ urlpatterns = [
     url(r'^product_type/', product_type_view.Create_product_type.as_view(), name='product_type'),
     url(r'^add_to_order/', add_to_order, name='add_to_order'),
     url(r'^product_type_list/', product_type_view.product_type, name='product_type_list'),
+    url(r'^order_detail/(?P<order_id>[0-9]+)/$', order_detail_view.OrderDetail.as_view(), name = 'order_detail')
 ]
