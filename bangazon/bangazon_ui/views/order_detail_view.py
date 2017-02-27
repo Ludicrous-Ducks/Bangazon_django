@@ -27,13 +27,13 @@ class OrderDetail(TemplateView):
 
     return context
 
-    def post(self, request):
-        data = request.post
-        current_order = Order.objects.get(customer__user=request.user)
-        current_order.completed=1
-        current_order.save()
+  def post(self, request):
+      data = request.post
+      current_order = Order.objects.get(customer__user=request.user)
+      current_order.completed=1
+      current_order.save()
 
-        return HttpResponseRedirect(redirect_to='/product_type_list')
+      return HttpResponseRedirect(redirect_to='/product_type_list')
 
 
 
