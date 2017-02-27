@@ -16,7 +16,7 @@ class CloseOrderView(TemplateView):
         current_order.completed=1
         current_order.save()
 
-        return HttpResponseRedirect(redirect_to='/order_complete')
+        return HttpResponseRedirect(redirect_to='/product_type_list')
 
 
 
