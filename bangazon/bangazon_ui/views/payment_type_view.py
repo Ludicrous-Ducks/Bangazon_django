@@ -5,6 +5,9 @@ from django.views.generic.base import TemplateView
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth import views
+from bangazon_ui.models.customer_model import Customer
+from bangazon_ui.models.payment_type_model import PaymentType
+
 
 class PaymentTypeView(TemplateView):
     """
@@ -22,7 +25,7 @@ class PaymentTypeView(TemplateView):
 
         data = request.POST
         current_customer = Customer.objects.get(user=request.user)
-        add_payment = Payment.objects.create(
+        add_payment = PaymentType.objects.create(
             customer=current_customer,
             payment_type=data['payment_type'],
             account_number=data['account_number'],

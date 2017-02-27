@@ -9,11 +9,11 @@ from bangazon_ui.models.product_type_model import ProductType
 from bangazon_ui.models.order_model import Order
 
 
-class TestOrderModel(TestCase): 
+class TestOrderModel(TestCase):
 
     """
-    This is a test to build implementation code for the Order Model. 
-
+    This is a test to build implementation code for the Order Model.
+    Author: Shawn Mitchell
     """
 
     def test_order_has_required_fields(self):
@@ -63,12 +63,12 @@ class TestOrderModel(TestCase):
 
         order.product.add(product)
         order.save()
+
         # We needed the print statement to display where the Queryset was returning inside the Terminal after running 'manage.py test'
-        print("these are the goods", order.product.all())
+
 
         # Check to see if there  is an object instance of Customer / PaymentType/ Product
         self.assertIsInstance(order.customer, Customer)
         self.assertIsInstance(order.payment_type, PaymentType)
         #QuerysetEqual is an assertion native to Django and used to test the .all() or products returned after the .save() has been invoked.
         self.assertQuerysetEqual(order.product.all(), ['<Product: cello>'])
-        #self.assertIsInstance(order.product, Product)

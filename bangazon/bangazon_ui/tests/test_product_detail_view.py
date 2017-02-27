@@ -19,6 +19,7 @@ class TestProductDetailView(TestCase):
 
     def test_product_detail_view_should_return_product_details(self):
         """
+        Method to ensure that the detail view is sending the correct product object to the template.
         """
         test_user = User.objects.create_user(
             first_name="Dani",

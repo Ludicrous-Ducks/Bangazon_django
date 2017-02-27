@@ -1,26 +1,35 @@
 {% extends 'bangazon_ui/index.html' %}
 {% block content %}
+{% csrf_token %}
 <h2>{{object.name}}</h2>
-<ul>
-    <li>
-      <span class="sold-by-label">Sold by: </span>
-      <span class="seller-name">{{object.customer.user.username}}</span>
-    </li>
-    <li>
-      <span class="category-label">Category: </span>
-      <span class="category">{{object.product_type.label}}</span>
-    </li>
-    <li>
-      <span class="description-label">Description: </span>
-      <p class="description">{{object.description}}</p>
-    </li>
-    <li>
-      <span class="qty-label">Quantity Available: 
-      <span class="qty-avail">{{object.quantity}}
-    </li>
-    <li>
-      <span class="price-label">Price: </span>
-      <span class="price">$ {{object.price}}</span>
-    </li>
+<ul class="product_detail">
+  <li class="detail_list">
+    <span class="sold-by-label">Sold by: </span>
+    <span class="seller-name">{{object.customer.user.username}}</span>
+  </li>
+  <li class="detail_list">
+    <span class="category-label">Category: </span>
+    <span class="category">{{object.product_type.label}}</span>
+  </li>
+  <li class="detail_list">
+    <span class="description-label">Description: </span>
+    <p class="description">{{object.description}}</p>
+  </li>
+  <li class="detail_list">
+    <span class="qty-label">Quantity Available:
+    <span class="qty-avail">{{object.quantity}}
+  </li>
+  <li class="detail_list">
+    <span class="price-label">Price: </span>
+    <span class="price">$ {{object.price}}</span>
+  </li>
 </ul>
+
+<form class="" action="{% url 'bangazon_ui:add_to_order' %}" method="post">
+{% csrf_token %}
+  <button type="submit">Add This to My Order!
+    <input type="submit" value="{{object.pk}}" name="product_pk"/>
+  </button>
+</form>
+
 {% endblock %}
