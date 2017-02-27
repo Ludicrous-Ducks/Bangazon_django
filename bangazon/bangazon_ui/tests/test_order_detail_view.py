@@ -54,15 +54,16 @@ class TestOrderDetailView(TestCase):
 
         self.order.save()
         self.order.product.add(self.product)
+        self.client.login(username='suzibee' , password='suzi1234')
 
 
     def test_order_detail_view_shows_correct_order(self):
         """
             a test method to check the order model field
         # """
-        response = self.client.get(reverse('bangazon_ui:order_detail',  args=[self.order.pk]))
+        response = self.client.get(reverse('bangazon_ui:order_detail'))
         self.assertEqual(response.status_code, 200)
-        self.assertIn( "{'order_list': <Order: 0>, 'product_list': <QuerySet [<Product: lego>]>}", str(response.context))
+        self.assertIn( "{'order_list': <Order: 0>, 'product_list': <QuerySet [<Product: lego>]>, 'payment_type': <QuerySet [<PaymentType: Visa 12345678>]>}", str(response.context))
 
         
 
