@@ -1,19 +1,5 @@
 {% extends 'bangazon_ui/index.html'%}
 {% block content %}
+"Hello Are you there?"
 
-{% if order_list %}
-    <ul>
-    {% for order_item in order_list %}
-        <li>Name: {{order_item.price}}</li>
-        <li>Description:{{order_item.description}} </li>
-        <li>Price:{{order_item.price}} </li>
-        <li>Quantity:{{order_item.quantity}} </li>
-        <li>Total Item:{{order_item.totalItem}} </li>
-        <li>Total Price:{{order_item.totalPrice}} </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>You have selected 0 item</p>
-
-{% endif %}
 {% endblock %}

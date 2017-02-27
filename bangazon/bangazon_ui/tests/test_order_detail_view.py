@@ -8,6 +8,7 @@ from bangazon_ui.models.product_type_model import ProductType
 from bangazon_ui.models.order_model import Order
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.db.models import F, Count
 
 # from bangazon_ui.models.orders_model import Orders
 
@@ -17,10 +18,10 @@ class TestOrderDetailView(TestCase):
     """
     def setUp(self):
         self.user = User.objects.create_user(
-            first_name="Dani",
-            last_name="Dani",
-            username="danidani",
-            password="asdf1234"
+            first_name="Suzi",
+            last_name="Suzi",
+            username="suzibee",
+            password="suzi1234"
             )
 
         self.customer = Customer.objects.create(
@@ -49,7 +50,7 @@ class TestOrderDetailView(TestCase):
         self.order= Order(
             completed=0, 
             customer = self.customer,
-            payment_type = self.payment
+            payment_type = self.payment,
             )
 
         self.order.save()
@@ -59,9 +60,23 @@ class TestOrderDetailView(TestCase):
     def test_order_detail_view_shows_correct_order(self):
         """
             a test method to check the order model field
-        """
-        response = self.client.get(reverse('bangazon_ui:order_detail',  args=[self.order.pk] ))
+        # """
+        response = self.client.get(reverse('bangazon_ui:order_detail',  args=[self.order.pk]))
         self.assertEqual(response.status_code, 200)
-        self.assertQuerysetEqual(response.context, ['<order: lego>'])
+        self.assertIn( "{'order_list': <Order: 0>, 'product_list': <QuerySet [<Product: lego>]>}", str(response.context))
 
+        
+
+
+
+
+
+        # queryset = self.order.objects.all().order_by('product_id').filter(product_id = self.product.pk)
+        # queryset_p = self.product.objects.all()
+        # products = self.product.annotate(Count(self.product.pk))
+        # print(products)
+
+
+
+        
         
