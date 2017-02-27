@@ -7,6 +7,25 @@
     <link rel="stylesheet" hre="{%static 'main.css'%}">
   </head>
   <body>
+    <nav class="bang-nav">
+      <ul>
+        <li>
+          <a href="{% url 'bangazon_ui:product_type_list' %}" class="nav-btn">
+            Product Categories
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'bangazon_ui:order_detail' %}" class="nav-btn">
+            My Order {{count}}
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'bangazon_ui:logout' %}" class="nav-btn">
+            Logout
+          </a>
+        </li>
+      </ul>
+    </nav>
     {% block content %}{% endblock %}
     <script type="text/javascript" src="{%static 'main.js'%}"></script>
   </body>
