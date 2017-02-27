@@ -6,6 +6,7 @@ from bangazon_ui.views import login_view
 from bangazon_ui.views import payment_type_view
 from bangazon_ui.views import product_view
 from bangazon_ui.views import product_type_view
+from bangazon_ui.views import product_list_view
 from bangazon_ui.views.product_detail_view import ProductDetailView
 
 app_name = 'bangazon_ui'
@@ -19,4 +20,5 @@ urlpatterns = [
     url(r'^product_detail/(?P<pk>[0-9]+)/$',ProductDetailView.as_view(), name='product_detail' ),
     url(r'^product_type/', product_type_view.Create_product_type.as_view(), name='product_type'),
     url(r'^product_type_list/', product_type_view.product_type, name='product_type_list'),
+    url(r'^product_list/(?P<pk>[0-9]+)/$', product_list_view.ProductListView.as_view(), name='product_list')
 ]
