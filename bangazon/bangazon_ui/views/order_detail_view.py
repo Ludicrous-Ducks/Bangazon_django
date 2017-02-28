@@ -25,11 +25,12 @@ class OrderDetail(TemplateView):
 
     context = {'order_list': order_list[0], 'product_list': product_list, 'payment_type': payment_type_list}
 
+
     return context
 
   def post(self, request):
       data = request.post
-      current_order = Order.objects.get(customer__user=request.user)
+      current_order = order_model.Order.objects.get(customer__user=request.user)
       current_order.completed=1
       current_order.save()
 
