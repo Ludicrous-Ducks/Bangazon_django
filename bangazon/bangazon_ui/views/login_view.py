@@ -29,4 +29,4 @@ class Login(TemplateView):
 
 def logout_user(request):
     logout(request)
-    return HttpResponseRedirect(redirect_to='/')
+    return HttpResponseRedirect(redirect_to='/login')
