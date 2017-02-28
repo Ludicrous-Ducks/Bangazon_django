@@ -27,3 +27,5 @@ urlpatterns = [
     url(r'^product_list/(?P<pk>[0-9]+)/$', product_list_view.ProductListView.as_view(), name='product_list'),
 
 ]
+
+

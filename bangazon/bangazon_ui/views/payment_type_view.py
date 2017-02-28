@@ -33,12 +33,3 @@ class PaymentTypeView(TemplateView):
             expiration_date=data['expiration_date']
             )
         return HttpResponseRedirect(redirect_to='/order')
-
-
-
-
-
-
-
-
-

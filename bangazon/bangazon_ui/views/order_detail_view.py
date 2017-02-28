@@ -23,7 +23,7 @@ class OrderDetail(TemplateView):
     payment_type_list = payment_type_model.PaymentType.objects.filter(customer = customer.pk)
     product_list = order_list.product.all()
 
-    context = {'order_list': order_list, 'product_list': product_list, 'payment_type': payment_type_list}
+    context = {'order_list': order_list, 'product_list': product_list, 'payment_types': payment_type_list}
 
     return context
 

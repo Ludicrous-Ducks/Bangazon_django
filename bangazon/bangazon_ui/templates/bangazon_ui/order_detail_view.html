@@ -1,5 +1,15 @@
 {% extends 'bangazon_ui/index.html'%}
-{% block content %}
-"Hello Are you there?"
+<form action="{%url 'bangazon_ui:order_detail' %}" method="post">
 
+<select name="payment">
+    {% for payment in payment_types %}
+    <option value="{{payment.pk}}" selected="selected"> Payment {{payment.payment_type}}: {{payment.account_number}}</option>
+    {% endfor %}
+    <option value="add" selected="selected"><a href="/create_payment_type"> Add Payment </a></option>
+</select>
+
+
+<button type="submit"> Complete </button>
+</form>                                               
 {% endblock %}
+                     
