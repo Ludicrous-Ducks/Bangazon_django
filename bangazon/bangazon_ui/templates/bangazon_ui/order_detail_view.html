@@ -1,15 +1,19 @@
-{% extends 'bangazon_ui/index.html'%}
-<form action="{%url 'bangazon_ui:order_detail' %}" method="post">
+{% extends 'bangazon_ui/index.html'%} {% block content %}
+<h2> ' This is the janky stand in for Order View Template' </h2> {% for item in product_list %}
+<h4> {{item.nam}}</h4>
+<br></br>
+<h4> {{item.price}}</h4> {%endfor %}
+</ul>
+<form action="{%url 'bangazon_ui:order_detail'%}" method="post">
+    {% csrf_token %}
+    <select name="payment">
+        {% for payment in payment_types %}
+        <option value="{{payment.pk}}" selected="selected"> Payment {{payment.payment_type}}: {{payment.account_number}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit"> Complete </button>
+</form>
 
-<select name="payment">
-    {% for payment in payment_types %}
-    <option value="{{payment.pk}}" selected="selected"> Payment {{payment.payment_type}}: {{payment.account_number}}</option>
-    {% endfor %}
-    <option value="add" selected="selected"><a href="/create_payment_type"> Add Payment </a></option>
-</select>
+    <a href="{%url 'bangazon_ui:payment_type_create' %}"> Add Payment </a>
 
-
-<button type="submit"> Complete </button>
-</form>                                               
 {% endblock %}
-                     
