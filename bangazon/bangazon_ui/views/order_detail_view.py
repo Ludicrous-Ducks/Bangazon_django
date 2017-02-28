@@ -21,15 +21,16 @@ class OrderDetail(TemplateView):
     customer = customer_model.Customer.objects.get(user = self.request.user.pk)
     order_list = order_model.Order.objects.get_or_create(customer =customer.pk, completed = 0)
     payment_type_list = payment_type_model.PaymentType.objects.filter(customer = customer.pk)
-    product_list = order_list.product.all()
+    product_list = order_list[0].product.all()
 
     context = {'order_list': order_list[0], 'product_list': product_list, 'payment_type': payment_type_list}
+
 
     return context
 
   def post(self, request):
       data = request.post
-      current_order = Order.objects.get(customer__user=request.user)
+      current_order = order_model.Order.objects.get(customer__user=request.user)
       current_order.completed=1
       current_order.save()
 
