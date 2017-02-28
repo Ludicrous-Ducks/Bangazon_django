@@ -16,8 +16,23 @@
           </a>
         </li>
         <li class="nav-btn">
+          <a href="{% url 'bangazon_ui:order_detail' %}">
+            My Order
+          </a>
+        </li>
+        <li class="nav-btn">
+          <a href="{% url 'bangazon_ui:product_type' %}">
+            Create a New Category
+          </a>
+        </li>
+        <li class="nav-btn">
+          <a href="{% url 'bangazon_ui:product' %}">
+            Create a New Product
+          </a>
+        </li>
+        <li class="nav-btn">
           <a href="{% url 'bangazon_ui:product_type_list' %}">
-            Product Categories
+            Categories
           </a>
         </li>
       </ul>
