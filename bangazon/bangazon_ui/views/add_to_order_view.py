@@ -6,6 +6,7 @@ from django.contrib.auth import logout, login, authenticate
 from django.http import HttpResponse, HttpResponseRedirect
 from bangazon_ui.models.customer_model import Customer
 from bangazon_ui.models.order_model import Order
+from bangazon_ui.models.order_model import OrderProduct
 from bangazon_ui.models.product_model import Product
 
 def add_to_order(request):
@@ -15,9 +16,10 @@ def add_to_order(request):
     request_data = request.POST
     current_user = request.user
     current_customer = Customer.objects.get(user=current_user.pk)
-    myorder = Order.objects.get_or_create(customer=current_customer.pk, completed=0)
+    myorder = Order.objects.get_or_create(customer=current_customer, completed=0)
+    print(myorder[0])
     product = Product.objects.get(pk=request_data['product_pk'])
-    myorder[0].product.add(product)
-    myorder[0].save()
+    print(product)
+    orderproduct = OrderProduct.objects.create(order=myorder[0], product=product)
 
     return HttpResponseRedirect('/order_detail')
