@@ -3,7 +3,7 @@
 
 {% if product_list %}
     <ul>
-    {% for paym in product_list %}
+    {% for product in product_list %}
         <li><a href="/product_detail/{{product.pk}}/">Name: {{product.name}}</a></li>
        <!--  <li>Price: {{product.price}}</li>
         <li>Desciption: {{product.description}}</li>

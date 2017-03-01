@@ -1,8 +1,9 @@
 {% extends 'bangazon_ui/index.html'%} {% block content %}
-<h2> ' This is the janky stand in for Order View Template' </h2> {% for item in product_list %}
-<h4> {{item.nam}}</h4>
+<h2> ' Please select Payment Type' </h2> {% for item in product_list %}
+<h4> {{item.name}}</h4>
 <br></br>
-<h4> {{item.price}}</h4> {%endfor %}
+<h4> {{item.price}}</h4> 
+{%endfor %}
 </ul>
 <form action="{%url 'bangazon_ui:order_detail'%}" method="post">
     {% csrf_token %}
@@ -13,7 +14,8 @@
     </select>
     <button type="submit"> Complete </button>
 </form>
-
+<!--this href link redirects the customer to another page(view) for the customer to create a payment type if none selected-->
     <a href="{%url 'bangazon_ui:payment_type_create' %}"> Add Payment </a>
 
 {% endblock %}
+

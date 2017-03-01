@@ -32,4 +32,4 @@ class PaymentTypeView(TemplateView):
             ccv=data['ccv'],
             expiration_date=data['expiration_date']
             )
-        return HttpResponseRedirect(redirect_to='/order_detail_view')
+        return HttpResponseRedirect(redirect_to='/order_detail')
