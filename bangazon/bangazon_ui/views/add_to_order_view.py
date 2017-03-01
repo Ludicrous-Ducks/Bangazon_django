@@ -15,9 +15,9 @@ def add_to_order(request):
     request_data = request.POST
     current_user = request.user
     current_customer = Customer.objects.get(user=current_user.pk)
-    myorder = Order.objects.get(customer=current_customer.pk, completed=0)
+    myorder = Order.objects.get_or_create(customer=current_customer.pk, completed=0)
     product = Product.objects.get(pk=request_data['product_pk'])
-    myorder.product.add(product)
-    myorder.save()
+    myorder[0].product.add(product)
+    myorder[0].save()
 
-    return HttpResponse('You Added a Product!')
+    return HttpResponseRedirect('/order_detail')

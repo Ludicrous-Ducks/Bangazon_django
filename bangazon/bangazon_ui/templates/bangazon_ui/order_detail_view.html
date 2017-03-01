@@ -1,4 +1,5 @@
-{% extends 'bangazon_ui/index.html'%} {% block content %}
+{% extends 'bangazon_ui/index.html'%} 
+{% block content %}
 <h2> ' Please select Payment Type' </h2> {% for item in product_list %}
 <h4> {{item.name}}</h4>
 <br></br>
@@ -17,5 +18,4 @@
 <!--this href link redirects the customer to another page(view) for the customer to create a payment type if none selected-->
     <a href="{%url 'bangazon_ui:payment_type_create' %}"> Add Payment </a>
 
-{% endblock %}
-
+{% endblock %}    

@@ -32,15 +32,4 @@ class Create_product_type(TemplateView):
         return HttpResponseRedirect(redirect_to='/product_type_list')
 
 
-# def del_product_type(request):
-#    product_type_list  = ProductType.objects.all()
-#     pname = request.POST.get('dropdown1')
 
-#     if request.method == GET:
-#         form = product_type_form()
-
-#     else: 
-#         pname = ProductType.objects.get(pname = pname)
-#         pname.delete()
-#         return HttpResponseRedirect(redirect_to='/product_type_list')
-#     return render(request, create_product_type.html, {'form': form, 'product_type': p_type})

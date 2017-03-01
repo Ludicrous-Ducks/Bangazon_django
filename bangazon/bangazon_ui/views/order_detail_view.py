@@ -23,7 +23,6 @@ class OrderDetail(TemplateView):
     payment_type_list = payment_type_model.PaymentType.objects.filter(customer = customer.pk)
     product_list = order_list[0].product.all()
 
-
     context = {'order_list': order_list[0], 'product_list': product_list, 'payment_types': payment_type_list}
     return context
 
@@ -34,4 +33,3 @@ class OrderDetail(TemplateView):
       current_order.save()
 
       return HttpResponseRedirect(redirect_to='/product_type_list')
-      
