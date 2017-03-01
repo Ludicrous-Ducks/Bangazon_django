@@ -15,9 +15,8 @@ class Order (models.Model):
 
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     completed = models.IntegerField(default = 0)
-    payment_type = models.ForeignKey(PaymentType, on_delete=models.CASCADE)
-    product = models.ManyToManyField(Product)
-    #productorder= models.ManyToManyField(ProductOrder)
+    payment_type = models.ForeignKey(PaymentType, null=True, on_delete=models.CASCADE)
+    product = models.ManyToManyField(Product, through='OrderProduct')
 
     #  This will allow the Order class to be recgonized in Django also as Orders
     class Meta:
@@ -25,3 +24,9 @@ class Order (models.Model):
     #Returning the object to show whether the order has been completed or not (0 off 1 on)
     def __str__(self):
         return '{}'.format(self.completed)
+
+class OrderProduct(models.Model):
+    """
+    """
+    product = models.ForeignKey(Product, null=True)
+    order = models.ForeignKey(Order, null=True)

@@ -6,6 +6,7 @@ from django.views.generic.base import TemplateView
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, login, authenticate
 from bangazon_ui.models import customer_model
+from django.db.models import F, Sum, FloatField
 
 class OrderDetail(TemplateView):
   """
@@ -19,16 +20,18 @@ class OrderDetail(TemplateView):
   
   def get_context_data(self, **kwargs):
     customer = customer_model.Customer.objects.get(user = self.request.user.pk)
-    order_list = order_model.Order.objects.get_or_create(customer =customer.pk, completed = 0)
-    payment_type_list = payment_type_model.PaymentType.objects.filter(customer = customer.pk)
+    order_list = order_model.Order.objects.get_or_create(customer=customer, completed = 0)
+    payment_type_list = payment_type_model.PaymentType.objects.filter(customer=customer.pk)
     product_list = order_list[0].product.all()
+    grand_total=product_list.aggregate(total=Sum(F('price'), output_field=FloatField()) )
 
-    context = {'order_list': order_list[0], 'product_list': product_list, 'payment_types': payment_type_list}
+    context = {'order_list': order_list[0], 'product_list': product_list, 'payment_type': payment_type_list } 
+    context.update(grand_total)
     return context
 
   def post(self, request):
       data = request.POST
-      current_order = order_model.Order.objects.get(customer__user=request.user)
+      current_order = order_model.Order.objects.get(customer__user=request.user, completed = 0)
       current_order.completed=1
       current_order.save()
 
