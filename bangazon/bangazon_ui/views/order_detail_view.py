@@ -29,8 +29,8 @@ class OrderDetail(TemplateView):
     return context
 
   def post(self, request):
-      data = request.post
-      current_order = order_model.Order.objects.get(customer__user=request.user)
+      data = request.POST
+      current_order = order_model.Order.objects.get(customer__user=request.user, completed = 0)
       current_order.completed=1
       current_order.save()
 
