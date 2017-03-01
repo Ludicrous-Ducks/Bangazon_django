@@ -22,9 +22,10 @@ class OrderDetail(TemplateView):
     order_list = order_model.Order.objects.get_or_create(customer =customer.pk, completed = 0)
     payment_type_list = payment_type_model.PaymentType.objects.filter(customer = customer.pk)
     product_list = order_list[0].product.all()
+    grand_total=product_list.aggregate(total=Sum(F('price'), output_field=FloatField()) )
 
-    context = {'order_list': order_list[0], 'product_list': product_list, 'payment_type': payment_type_list}
-
+    context = {'order_list': order_list[0], 'product_list': product_list, 'payment_type': payment_type_list } 
+    context.update(grand_total)
 
     return context
 
