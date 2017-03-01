@@ -17,6 +17,7 @@ class Order (models.Model):
     completed = models.IntegerField(default = 0)
     payment_type = models.ForeignKey(PaymentType, on_delete=models.CASCADE)
     product = models.ManyToManyField(Product)
+    #productorder= models.ManyToManyField(ProductOrder)
 
     #  This will allow the Order class to be recgonized in Django also as Orders
     class Meta:

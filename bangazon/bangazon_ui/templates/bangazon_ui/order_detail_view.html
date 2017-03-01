@@ -1,16 +1,21 @@
-{% extends 'bangazon_ui/index.html'%}
+{% extends 'bangazon_ui/index.html'%} 
 {% block content %}
-<h2>"Hello Are you there?"</h2>
-<ul>
-  {% for item in product_list %}
-  <li>
-    <li>
-      <h4>{{item.name}}</h4>
-    </li>
-    <li>
-      <h4>{{item.price}}</h4>
-    </li>
-  </li>
-  {% endfor %}
+<h2> ' Please select Payment Type' </h2> {% for item in product_list %}
+<h4> {{item.name}}</h4>
+<br></br>
+<h4> {{item.price}}</h4> 
+{%endfor %}
 </ul>
-{% endblock %}
+<form action="{%url 'bangazon_ui:order_detail'%}" method="post">
+    {% csrf_token %}
+    <select name="payment">
+        {% for payment in payment_types %}
+        <option value="{{payment.pk}}" selected="selected"> Payment {{payment.payment_type}}: {{payment.account_number}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit"> Complete </button>
+</form>
+<!--this href link redirects the customer to another page(view) for the customer to create a payment type if none selected-->
+    <a href="{%url 'bangazon_ui:payment_type_create' %}"> Add Payment </a>
+
+{% endblock %}    
