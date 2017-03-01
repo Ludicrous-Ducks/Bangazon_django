@@ -5,10 +5,15 @@
 
   <form action="{% url 'bangazon_ui:payment_type_create' %}" method="post" >
     {% csrf_token %}
-    <input type="text" name="payment_type" value="" placeholder="Please enter payment type (Visa, Mastercard, etc.)">
-    <input type="text" name="account_number" value="" placeholder="Please enter a 16 digit account number">
-    <input type="text" name="ccv" value="" placeholder="Enter 3 digit CCV number">
-    <input type="text" name="expiration_date" value="" placeholder="Please enter the card expiration date">
+    <br>
+    <input type="text" name="payment_type" value="" placeholder="Payment Type (Visa, Mastercard, etc.)">
+    <br>
+    <input type="text" name="account_number" value="" placeholder="16-digit Account Number">
+    <br>
+    <input type="text" name="ccv" value="" placeholder="CCV Number">
+    <br>
+    <input type="text" name="expiration_date" value="" placeholder="Expiration Date">
+    <br>
     <button type="submit" name="button">Submit</button>
   </form>
 

@@ -2,11 +2,17 @@
 {%block content%}
 <form class="" action="{%url 'bangazon_ui:product' %}" method="post">
     {%csrf_token %}
-    <input type='text' name='name' value='' placeholder='name'>
-    <input type='text' name='price' value='' placeholder='price'>
-    <input type='text' name='description' value='' placeholder='description'>
-    <input type='text' name='quantity' value='' placeholder='quantity'>
-    <input type='text' name='label' value='' placeholder='product_type'>
+    <br>
+    <input type='text' name='name' value='' placeholder='Product Name'>
+    <br>
+    <input type='text' name='price' value='' placeholder='Price'>
+    <br>
+    <input type='text' name='description' value='' placeholder='Description'>
+    <br>
+    <input type='text' name='quantity' value='' placeholder='Quantity'>
+    <br>
+    <input type='text' name='label' value='' placeholder='Product Type'>
+    <br>
     <button type='submit'>Submit</button>
 </form>
 {%endblock%}

@@ -1,20 +1,24 @@
-{% extends 'bangazon_ui/index.html'%} 
+{% extends 'bangazon_ui/index.html'%}
 {% block content %}
 <h2>My Order</h2>
 {% for item in product_list %}
 <ul>
   <li>
-    <h4> {{item.name}}</h4>
-    <h4> {{item.price}}</h4>
+    <span> {{item.name}}</span>
+    <span> ${{item.price}}</span>
   </li>
 </ul>
 {%endfor %}
+
+    <h3>Grand Total: ${{total|floatformat:2}}</h3>
+
 <form action="{%url 'bangazon_ui:order_detail'%}" method="post">
     {% csrf_token %}
     <select name="payment">
         {% for payment in payment_type %}
         <option value="{{payment.pk}}" selected="selected"> Payment {{payment.payment_type}}: {{payment.account_number}}</option>
         {% endfor %}
+
     </select>
     <button type="submit"> Complete </button>
 </form>
