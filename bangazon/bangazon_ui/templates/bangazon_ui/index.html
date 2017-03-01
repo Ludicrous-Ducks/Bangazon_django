@@ -4,41 +4,43 @@
   <head>
     <meta charset="utf-8">
     <title>Bangazon</title>
+    <link rel="stylesheet" href="{%static 'normalize.css'%}">
     <link rel="stylesheet" href="{%static 'main.css'%}">
   </head>
   <body>
     <nav class="bang-nav">
-      <h1>Bangazon</h1>
+      <a href="#"><h3>Bangazon</h3></a>
       <ul class="nav-list">
-        <li class="nav-btn">
+        <li class="nav-btn-left">
+          <a href="{% url 'bangazon_ui:product' %}">
+            Sell a Product
+          </a>
+        </li>
+        <li class="nav-btn-left">
+          <a href="{% url 'bangazon_ui:product_type_list' %}">
+            Product Types
+          </a>
+        </li>
+      </ul>
+      <ul class="nav-list">
+        <li class="nav-btn-right">
           <a href="{% url 'bangazon_ui:logout' %}">
             Logout
           </a>
         </li>
-        <li class="nav-btn">
+        <li class="nav-btn-right">
           <a href="{% url 'bangazon_ui:order_detail' %}">
-            My Order
+            My Order<br>{{product_count}} Items
           </a>
         </li>
-        <li class="nav-btn">
-          <a href="{% url 'bangazon_ui:product_type' %}">
-            Create a New Category
-          </a>
-        </li>
-        <li class="nav-btn">
-          <a href="{% url 'bangazon_ui:product' %}">
-            Create a New Product
-          </a>
-        </li>
-        <li class="nav-btn">
-          <a href="{% url 'bangazon_ui:product_type_list' %}">
-            Categories
-          </a>
+        <li class="nav-msg">
+          {{message}}
         </li>
       </ul>
     </nav>
     <div class="main-body">
-      {% block content %}{% endblock %}
+      {% block content %}
+      {% endblock %}
     </div>
     <script type="text/javascript" src="{%static 'main.js'%}"></script>
   </body>

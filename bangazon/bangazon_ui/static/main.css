@@ -2,13 +2,13 @@
   width: 100%;
   position: fixed;
   top: 0;
-  height: 75px;
+  height: 90px;
   background: teal;
   color: tan;
   box-shadow: inset 0 0 3em rgba(20, 49, 83, 0.8);
 }
 
-.bang-nav h1 {
+.bang-nav h3 {
   display: inline;
   font-size: 3em;
   margin-left: .25em;
@@ -16,11 +16,11 @@
   float: left;
 }
 
-.nav-btn {
+.nav-btn-right {
   float: right;
   background-color: tan;
   color: grey;
-  font-weight: bolder;
+  /*font-weight: bolder;*/
   font-size: 1.25em;
   border: 1px solid black;
   width: 130px;
@@ -30,9 +30,28 @@
   text-align: center;
 }
 
+.nav-msg {
+  float: right;
+}
+
+.nav-btn-left {
+  float: left;
+  background-color: tan;
+  color: grey;
+  /*font-weight: bolder;*/
+  font-size: 1.25em;
+  border: 1px solid black;
+  width: 130px;
+  height: 50px;
+  margin: 1px;
+  border-radius: .25em;
+  text-align: center;
+}
 
 .main-body {
   margin-top: 12.5vh;
+  max-width: 960px;
+  margin: 100px auto 0 auto;
 }
 
 .nav-list {
