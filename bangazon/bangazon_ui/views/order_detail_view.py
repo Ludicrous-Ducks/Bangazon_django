@@ -17,7 +17,7 @@ class OrderDetail(TemplateView):
   # order_list = Orders.objects.order_by('product_id')
   # product_list = Product.objects.order_by('product_id')
   template_name = 'bangazon_ui/order_detail_view.html'
-  
+
   def get_context_data(self, **kwargs):
     customer = customer_model.Customer.objects.get(user = self.request.user.pk)
     order_list = order_model.Order.objects.get_or_create(customer=customer, completed = 0)
@@ -25,7 +25,7 @@ class OrderDetail(TemplateView):
     product_list = order_list[0].product.all()
     grand_total=product_list.aggregate(total=Sum(F('price'), output_field=FloatField()) )
 
-    context = {'order_list': order_list[0], 'product_list': product_list, 'payment_type': payment_type_list } 
+    context = {'order_list': order_list[0], 'product_list': product_list, 'payment_type': payment_type_list }
     context.update(grand_total)
     return context
 

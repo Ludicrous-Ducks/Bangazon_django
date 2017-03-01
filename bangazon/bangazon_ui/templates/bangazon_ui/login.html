@@ -2,8 +2,11 @@
 {%block content%}
 <form class = "" action="{% url 'bangazon_ui:login' %}" method="post">
 	{%csrf_token%}
+  <br>
 	<input type="text" name='username' value="" placeholder="Enter username">
+  <br>
 	<input type="text" name='password' value="" placeholder="Enter password">
+  <br>
 	<button type="submit">Submit</button>
 </form>
 
