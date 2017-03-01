@@ -1,6 +1,6 @@
-{% extends 'bangazon_ui/index.html'%}
+{% extends 'bangazon_ui/index.html'%} 
 {% block content %}
-<h2> ' This is the janky stand in for Order View Template' </h2>
+<h2>My Order</h2>
 {% for item in product_list %}
 <ul>
   <li>
@@ -18,7 +18,6 @@
     </select>
     <button type="submit"> Complete </button>
 </form>
-
     <a href="{%url 'bangazon_ui:payment_type_create' %}"> Add Payment </a>
 
 {% endblock %}

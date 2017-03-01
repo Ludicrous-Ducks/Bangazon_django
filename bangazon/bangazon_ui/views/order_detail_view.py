@@ -26,7 +26,6 @@ class OrderDetail(TemplateView):
 
     context = {'order_list': order_list[0], 'product_list': product_list, 'payment_type': payment_type_list } 
     context.update(grand_total)
-
     return context
 
   def post(self, request):
@@ -36,9 +35,3 @@ class OrderDetail(TemplateView):
       current_order.save()
 
       return HttpResponseRedirect(redirect_to='/product_type_list')
-
-
-
-
-
-  
