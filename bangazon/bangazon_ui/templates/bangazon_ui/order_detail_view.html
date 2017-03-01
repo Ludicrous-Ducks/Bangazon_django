@@ -12,7 +12,7 @@
 <form action="{%url 'bangazon_ui:order_detail'%}" method="post">
     {% csrf_token %}
     <select name="payment">
-        {% for payment in payment_types %}
+        {% for payment in payment_type %}
         <option value="{{payment.pk}}" selected="selected"> Payment {{payment.payment_type}}: {{payment.account_number}}</option>
         {% endfor %}
     </select>
