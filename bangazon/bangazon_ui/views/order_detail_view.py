@@ -6,6 +6,7 @@ from django.views.generic.base import TemplateView
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, login, authenticate
 from bangazon_ui.models import customer_model
+from django.db.models import F, Sum, FloatField
 
 class OrderDetail(TemplateView):
   """
@@ -24,7 +25,7 @@ class OrderDetail(TemplateView):
     product_list = order_list[0].product.all()
     grand_total=product_list.aggregate(total=Sum(F('price'), output_field=FloatField()) )
 
-    context = {'order_list': order_list[0], 'product_list': product_list, 'payment_type': payment_type_list } 
+    context = {'order_list': order_list[0], 'product_list': product_list, 'payment_types': payment_type_list } 
     context.update(grand_total)
     return context
 
