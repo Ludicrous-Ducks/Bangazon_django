@@ -24,9 +24,7 @@ class Create_product(TemplateView):
 
     def post(self, request):
         data = request.POST
-        print(data)
         if  data['label'] is not "":
-            print(data['label'])
             product_type = product_type_model.ProductType.objects.get_or_create(label=data['label'])
         else:
             return HttpResponseRedirect(redirect_to='/product')
