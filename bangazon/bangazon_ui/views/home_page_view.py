@@ -11,9 +11,7 @@ class HomePageView(TemplateView):
     template_name = 'bangazon_ui/home_page.html'
 
     def context_data(request):
-        """
 
-        """
         context = {}
         product_type_list_home = product_type_model.ProductType.objects.all()[:10]
         for product_type in product_type_list_home:
