@@ -2,7 +2,7 @@ import sys
 sys.path.append("../")
 from django.db import models
 from django.contrib.auth.models import User
-
+import datetime
 
 class ProductType(models.Model):
 
@@ -14,6 +14,7 @@ class ProductType(models.Model):
         
     Author: Julia Kim-Chung
     """
+    created = models.DateTimeField(auto_now_add=True)
     label = models.CharField(max_length=50, blank=True, unique=True)
 
     def __str__(self):
@@ -26,4 +27,4 @@ class ProductType(models.Model):
 
     class Meta:
 
-        ordering=('label',)
+        ordering=('-created',)
