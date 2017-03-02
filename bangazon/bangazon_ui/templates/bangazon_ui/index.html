@@ -31,11 +31,14 @@
         </li>
         <li class="nav-btn-right">
           <a href="{% url 'bangazon_ui:order_detail' %}">
-            My Order<br>{{product_count}} Items
+            {% welcome_and_cart.product_count as product_count %}
+            My Cart<br>{{product_count}} Items
           </a>
         </li>
         <li class="nav-msg">
+          {% welcome_and_cart.message as message %}
           {{message}}
+          }
         </li>
       </ul>
     </nav>
