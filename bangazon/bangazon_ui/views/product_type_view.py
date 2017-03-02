@@ -11,9 +11,12 @@ def product_type(request):
         This method is to list product type in the product_type_list page
         Author: Julia Kim-Chung
     """
-    product_type_list = ProductType.objects.order_by("label")[:20]
-    context = {'product_type_list': product_type_list,}
-    return render(request, 'bangazon_ui/product_type_list.html', context)
+    context = {}
+    product_type_list = product_type_model.ProductType.objects.all()[:10]
+    for product_type in product_type_list:
+        product_list = product_model.Product.objects.filter(product_type = product_type.pk).order_by("-created")
+        context.update({product_type: product_list})
+    return render(request, 'bangazon_ui/product_type_list.html', {"context":context})
 
 
 class Create_product_type(TemplateView):
