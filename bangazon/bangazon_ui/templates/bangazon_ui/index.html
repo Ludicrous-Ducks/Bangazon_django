@@ -12,33 +12,38 @@
     <nav class="bang-nav">
       <a href="#"><h3>Bangazon</h3></a>
       <ul class="nav-list">
-        <li class="nav-btn-left">
+        <li>
           <a href="{% url 'bangazon_ui:product' %}">
-            Sell a Product
+            <div class="nav-btn-left">
+              Sell a Product
+            </div>
           </a>
         </li>
-        <li class="nav-btn-left">
+        <li>
           <a href="{% url 'bangazon_ui:product_type_list' %}">
-            Product Types
+            <div class="nav-btn-left">
+              Product Types
+            </div>
           </a>
         </li>
       </ul>
       <ul class="nav-list">
-        <li class="nav-btn-right">
+        <li>
           <a href="{% url 'bangazon_ui:logout' %}">
-            Logout
+            <div class="nav-btn-right">
+              Logout
+            </div>
           </a>
         </li>
-        <li class="nav-btn-right">
+        <li>
           <a href="{% url 'bangazon_ui:order_detail' %}">
-            {% welcome_and_cart.product_count as product_count %}
-            My Cart<br>{{product_count}} Items
+            <div class="nav-btn-right">
+              My Cart<br>{% cart %} Items
+            </div>
           </a>
         </li>
         <li class="nav-msg">
-          {% welcome_and_cart.message as message %}
-          {{message}}
-          }
+          {% welcome %}
         </li>
       </ul>
     </nav>
