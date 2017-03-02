@@ -10,7 +10,10 @@ from django.contrib.auth import logout, login, authenticate
 class ProductListView(TemplateView):
 
 	template_name = 'bangazon_ui/product_list.html'
-	# model = product_model.Product
+	
 	def get_context_data(self, **kwargs):
 		product_list = product_model.Product.objects.filter(product_type = kwargs['pk'])
-		return {'product_list': product_list}
+		product_type = product_type_model.ProductType.objects.get(pk = kwargs['pk'])
+		return {'product_list': product_list, 'product_type': product_type}
+
+
