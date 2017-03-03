@@ -1,6 +1,7 @@
 {% extends 'bangazon_ui/index.html' %}
 {% block content %}
 
+
 {% for key, val in context.items %}
 
   <span><a href="/product_list/{{key.pk}}/"><h3>{{key.label}}({{val|length}})</h3></a></span>
@@ -11,3 +12,4 @@
 
 
 {% endblock %}
+

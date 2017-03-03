@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from bangazon_ui.models import *
 from django.views.generic.base import TemplateView
-# from django.views.generic.detail import DetailView
+
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, login, authenticate
 

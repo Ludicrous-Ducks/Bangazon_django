@@ -24,15 +24,23 @@ class Create_product(TemplateView):
 
     def post(self, request):
         data = request.POST
-        product_type = product_type_model.ProductType.objects.get_or_create(label=data['label'])
+        if  data['label'] is not "":
+            product_type = product_type_model.ProductType.objects.get_or_create(label=data['label'])
+        else:
+            return HttpResponseRedirect(redirect_to='/product')
         customer = customer_model.Customer.objects.get(user=request.user)
-        product_model.Product.objects.create(
-            name=data['name'],
-            price=data['price'],
-            description=data['description'],
-            quantity=data['quantity'],
-            product_type =product_type[0],
-            customer=customer
-            )
+        if product_type[0] is not None:
+             product_model.Product.objects.create(
+                name=data['name'],
+                price=data['price'],
+                description=data['description'],
+                quantity=data['quantity'],
+                product_type =product_type[0],
+                customer=customer
+                )
+
+        else: 
+            return HttpResponseRedirect(redirect_to='/product')
+
         return HttpResponseRedirect(redirect_to='/product_type_list')
 
