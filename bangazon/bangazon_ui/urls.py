@@ -14,7 +14,7 @@ from bangazon_ui.views import home_page_view
 
 app_name = 'bangazon_ui'
 urlpatterns = [
-    url(r'^$', login_view.Login.as_view(), name='login'),
+    url(r'^$', home_page_view.context_data, name='home_page'),
     url(r'^register/', register_view.Register.as_view(), name='register'),
     url(r'^login/', login_view.Login.as_view(), name='login'),
     url(r'^logout/', login_view.logout_user, name="logout"),
@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^product_type_list/', product_type_view.product_type, name='product_type_list'),
     url(r'^order_detail/$', order_detail_view.OrderDetail.as_view(), name = 'order_detail'),
     url(r'^product_list/(?P<pk>[0-9]+)/$', product_list_view.ProductListView.as_view(), name='product_list'),
-    url(r'^home_page/', home_page_view.HomePageView.as_view(), name='home_page'),
+    url(r'^home_page/', home_page_view.context_data, name='home_page'),
 
 
 
