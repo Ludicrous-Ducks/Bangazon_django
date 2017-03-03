@@ -5,7 +5,6 @@
    		<br>
         <li><a href="/product_list/{{key.pk}}/"><h4>{{key.label}}({{val|length}})</h4></a></li>
         {%for item in val%}<br>
-
         <p><a href="/product_detail/{{item.pk}}/">{{item.name}}:  ${{item.price}}</a></p>
         {%endfor%}
     {%endfor%}

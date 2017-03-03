@@ -9,7 +9,7 @@ from django.contrib.auth import logout, login, authenticate
 def context_data(request):
 
     context = {}
-    product_type_list_home = product_type_model.ProductType.objects.all()[:10]
+    product_type_list_home = product_type_model.ProductType.objects.all()[:5]
     for product_type in product_type_list_home:
         product_list_home = product_model.Product.objects.filter(product_type = product_type.pk).order_by("-created")
         context.update({product_type: product_list_home})
