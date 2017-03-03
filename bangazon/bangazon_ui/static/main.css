@@ -8,6 +8,12 @@
   box-shadow: inset 0 0 2em rgba(200, 250, 230, 0.5);
 }
 
+.welcome {
+    width: 260px;
+    margin-top: -12px;
+    display: inline-block;
+}
+
 .bang-nav h3 {
   display: inline;
   font-size: 3em;
