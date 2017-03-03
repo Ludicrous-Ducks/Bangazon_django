@@ -13,9 +13,6 @@ class OrderDetail(TemplateView):
     Thid method is to list order_detail in the Order Detail page
     Author Julia Kim-Chung
   """
-
-  # order_list = Orders.objects.order_by('product_id')
-  # product_list = Product.objects.order_by('product_id')
   template_name = 'bangazon_ui/order_detail_view.html'
 
   def get_context_data(self, **kwargs):
@@ -30,6 +27,10 @@ class OrderDetail(TemplateView):
     return context
 
   def post(self, request):
+      """
+      The post method will allow the customer to close the order after a payment type has been added.
+      Author: Dani Adkins
+      """
       data = request.POST
       try:
           current_order = order_model.Order.objects.get(customer__user=request.user, completed = 0)
