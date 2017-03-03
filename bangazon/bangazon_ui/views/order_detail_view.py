@@ -31,8 +31,17 @@ class OrderDetail(TemplateView):
 
   def post(self, request):
       data = request.POST
-      current_order = order_model.Order.objects.get(customer__user=request.user, completed = 0)
-      current_order.completed=1
-      current_order.save()
+      print(data)
+      if data['payment'] == None:
+          current_order = order_model.Order.objects.get(customer__user=request.user, completed = 0)
+      else:
+          return HttpResponseRedirect(redirect_to='/create_payment_type')
 
-      return HttpResponseRedirect(redirect_to='/product_type_list')
+      if data['payment'] is not None:
+          current_order = order_model.Order.objects.get(customer__user=request.user, completed = 0)
+          current_order.completed=1
+          current_order.save()
+      else:
+          return HttpResponseRedirect(redirect_to='/product_type_list')
+
+
