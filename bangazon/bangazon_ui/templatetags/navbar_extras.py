@@ -12,6 +12,9 @@ def welcome(context):
     """
     Method to create a custom welcome tag based on the current user context
 
+    Arguments: None
+    Returns: A string including the user's full name
+
     Author: Ben Marks, Ludicrous Ducks
     """
     user = context['user']
@@ -28,6 +31,9 @@ def cart(context):
     """
     Method to create a custom cart total tag based on the current user context
 
+    Arguments: None
+    Returns: Then integer length of the products found on a user's current order
+
     Author: Ben Marks, Ludicrous Ducks
     """
     user = context['user']
@@ -43,16 +49,3 @@ def cart(context):
 
     product_count = len(product_list)
     return product_count
-
-@register.simple_tag(takes_context=True)
-def log_button(context):
-    """
-    Method to return the correct button dependin on user status
-    """
-    user = context['user']
-    if user.is_authenticated():
-        button = "logout"
-    else:
-        button = "login"
-
-    return button

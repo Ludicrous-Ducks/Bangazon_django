@@ -8,7 +8,8 @@ from django.contrib.auth import logout, login, authenticate
 class ProductDetailView(DetailView):
     """
     Class to define the product detail view
-    The Template includes a button for adding the product to cart
+    Template includes a button for adding the product to cart
+        template = product_detail_view.html
 
     Author: Ben Marks, Ludicrous Ducks
     """
