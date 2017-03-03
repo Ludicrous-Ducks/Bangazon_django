@@ -43,3 +43,16 @@ def cart(context):
 
     product_count = len(product_list)
     return product_count
+
+@register.simple_tag(takes_context=True)
+def log_button(context):
+    """
+    Method to return the correct button dependin on user status
+    """
+    user = context['user']
+    if user.is_authenticated():
+        button = "logout"
+    else:
+        button = "login"
+
+    return button
