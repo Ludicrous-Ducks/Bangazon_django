@@ -31,17 +31,14 @@ class OrderDetail(TemplateView):
 
   def post(self, request):
       data = request.POST
-      print(data)
-      if data['payment'] == None:
+      try:
           current_order = order_model.Order.objects.get(customer__user=request.user, completed = 0)
-      else:
-          return HttpResponseRedirect(redirect_to='/create_payment_type')
-
-      if data['payment'] is not None:
-          current_order = order_model.Order.objects.get(customer__user=request.user, completed = 0)
+          current_order.payment_type = payment_type_model.PaymentType.objects.get(pk=data['payment'])
           current_order.completed=1
           current_order.save()
-      else:
           return HttpResponseRedirect(redirect_to='/product_type_list')
+      except MultiValueDictKeyError:
+          return HttpResponseRedirect(redirect_to='/payment_type_create')
+
 
 
