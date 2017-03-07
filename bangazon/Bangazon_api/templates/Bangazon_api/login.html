@@ -1,0 +1,14 @@
+{%extends 'Bangazon_api/index.html'%}
+{%block content%}
+<form class = "" action="{% url 'Bangazon_api:login' %}" method="post">
+	{%csrf_token%}
+  <br>
+	<input type="text" name='username' value="" placeholder="Enter username">
+  <br>
+	<input type="password" name='password' value="" placeholder="Enter password">
+  <br>
+	<button type="submit">Submit</button>
+</form>
+
+
+{%endblock%}

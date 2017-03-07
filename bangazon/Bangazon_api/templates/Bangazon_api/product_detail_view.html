@@ -1,0 +1,34 @@
+{% extends 'Bangazon_api/index.html' %}
+{% block content %}
+{% csrf_token %}
+<h2>{{object.name}}</h2>
+<ul class="product_detail">
+  <li class="detail_list">
+    <span class="sold-by-label">Sold by: </span>
+    <span class="seller-name">{{object.customer.user.username}}</span>
+  </li>
+  <li class="detail_list">
+    <span class="category-label">Category: </span>
+    <span class="category">{{object.product_type.label}}</span>
+  </li>
+  <li class="detail_list">
+    <span class="description-label">Description: </span>
+    <p class="description">{{object.description}}</p>
+  </li>
+  <li class="detail_list">
+    <span class="qty-label">Quantity Available:
+    <span class="qty-avail">{{object.quantity}}
+  </li>
+  <li class="detail_list">
+    <span class="price-label">Price: </span>
+    <span class="price">$ {{object.price}}</span>
+  </li>
+</ul>
+
+<form class="" action="{% url 'Bangazon_api:add_to_order' %}" method="post">
+{% csrf_token %}
+  <button type="submit" value="{{object.pk}}" name="product_pk">Add {{object.name}} to My Order!
+  </button>
+</form>
+
+{% endblock %}
