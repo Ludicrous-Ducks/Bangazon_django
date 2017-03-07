@@ -28,6 +28,8 @@ class PaymentType(models.Model):
     class Meta:
         """
         The Meta class creates a string representation of the plural instance of PaymentType
+
+        Author: Dani Adkins
         """
         verbose_name_plural = 'PaymentTypes'
 
@@ -35,5 +37,7 @@ class PaymentType(models.Model):
         """
         A method to create a string representation of the payment type and account number
         on the Bagazon API
+
+        Author: Dani Adkins
         """
         return '{} {}'.format(self.payment_type, self.account_number)

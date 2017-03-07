@@ -30,6 +30,8 @@ class Customer(models.Model):
     class Meta:
         """
         The Meta class creates a string representation of the plural instance of Customer
+
+        Author: Dani Adkins
         """
         verbose_name_plural = "Customers"
 
@@ -37,6 +39,8 @@ class Customer(models.Model):
         """
         A method to create a string representation of the Bangazon User(Customer)'s username
         on the Bagazon API
+
+        Author: Dani Adkins
         """
         return '{}'.format(self.user.username)
 
