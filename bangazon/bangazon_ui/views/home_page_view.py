@@ -7,6 +7,12 @@ from django.contrib.auth.models import User
 from django.contrib.auth import logout, login, authenticate
 
 def context_data(request):
+    """
+    This method will display the five most recent ProductTypes and Products to the /home_page
+    once a Customer(User) is logged into Bangazon.
+
+    Author: Dani Adkins
+    """
 
     context = {}
     product_type_list_home = product_type_model.ProductType.objects.all()[:5]

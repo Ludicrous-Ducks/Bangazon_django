@@ -11,15 +11,18 @@ from bangazon_ui.models.payment_type_model import PaymentType
 
 class PaymentTypeView(TemplateView):
     """
-    The PaymentTypeView will display the payment type information to the DOM for viewing by the current customer/user
+    The PaymentTypeView class will display the payment type information for viewing by the
+    current Customer(User). This class will have a post method.
+
     Author: Dani Adkins
     """
     template_name = 'bangazon_ui/create_payment_type.html'
 
     def post(self, request):
         """
-        The post method will allow the user to add payment credentials
-        Once payment credentials have been entered it will then re-route to the order page
+        The post method will allow the user to add payment credentials to the order.
+        Once payment credentials have been entered it will then re-route to the order page.
+
         Author: Dani Adkins
         """
 
