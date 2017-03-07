@@ -11,13 +11,18 @@ from django.contrib.auth.models import User
 
 class TestCloseOrderView(TestCase):
     """
-    This is the test class for the CloseOrderView
+    TestCloseOrderView is the class that houses the methods for testing that a Customer(User)
+    can close an order.
+
     Author: Dani Adkins
     """
 
     def test_customer_can_close_order(self):
         """
-        This test will test that the customer's order can be closed - completed will change from 0 to 1
+        test_customer_can_close_order creates an instance of Customer(User), PaymentType, ProductType
+        Product and Order to test that the customer's order can be closed. When a customer's order
+        is closed the completed variable on order will change from 0 to 1.
+
         Author: Dani Adkins
         """
         user = User.objects.create_user(

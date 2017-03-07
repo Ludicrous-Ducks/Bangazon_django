@@ -26,11 +26,14 @@ class OrderDetail(TemplateView):
     context = {'order_list': order_list[0], 'product_list': product_list, 'payment_type': payment_type_list }
     context.update(grand_total)
     return context
- 
+
 
   def post(self, request):
       """
-      The post method will allow the customer to close the order after a payment type has been added.
+      The post method will allow the current Customer(User) to close the order after a product
+      and payment type have been added. The user will not be able to close an order before
+      entering a payment type.
+
       Author: Dani Adkins
       """
       data = request.POST
@@ -42,3 +45,4 @@ class OrderDetail(TemplateView):
           return HttpResponseRedirect(redirect_to='/product_type_list')
       except MultiValueDictKeyError:
           return HttpResponseRedirect(redirect_to='/payment_type_create')
+
