@@ -7,13 +7,16 @@ from django.contrib.auth.models import User
 
 class TestCustomerModel(TestCase):
     """
-    This is the test class for the Customer model
+    The TestCustomerModel class is the test class for the Customer model
+
     Author: Dani Adkins
     """
 
     def test_customer_returns_defined_fields(self):
         """
-        This test will test that the customer information can be targeted and returned
+        This test will test that the fields for customer information can be targeted and
+        returned from the Customer Model.
+
         Author: Dani Adkins
         """
         user = User.objects.create_user(
