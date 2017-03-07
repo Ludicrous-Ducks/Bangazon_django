@@ -9,10 +9,17 @@ from django.urls import reverse
 
 class TestPaymentType(TestCase):
     """
-    This is the test class for the PaymentType model
+    Tests for the PaymentType model and payment_type_create.py will be housed as methods
+    in the TestPaymentType class.
+
     Author: Dani Adkins
     """
     def setUp(self):
+        """
+        The setUp method creates a Customer(User) instance, a payment instance and logs
+        the Customer into the Bangazon platform.
+        Author: Dani Adkins
+        """
 
         user = User.objects.create_user(
             first_name="Dani",
@@ -42,7 +49,9 @@ class TestPaymentType(TestCase):
 
     def test_payment_type_returns_defined_fields(self):
         """
-        This test will test that the payment type information can be targeted and returned
+        test_payment_type_returns_defined_fields will test that the payment type information
+        can be targeted and returned.
+
         Author: Dani Adkins
         """
         payment = PaymentType.objects.get(payment_type="Visa")
@@ -55,7 +64,9 @@ class TestPaymentType(TestCase):
 
     def test_payment_type_returns_posted_data(self):
         """
-        This test will test that the payment type information will return the following information
+        test_payment_type_returns_posted_data will test that the user is routed to the
+        /payment_type_create page after choosing to enter an order.
+
         Author: Dani Adkins
         """
         payment_test = {
