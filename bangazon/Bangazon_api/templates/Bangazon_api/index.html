@@ -1,0 +1,58 @@
+{% load static %}
+{% load navbar_extras %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bangazon</title>
+    <link rel="stylesheet" href="{%static 'normalize.css'%}">
+    <link rel="stylesheet" href="{%static 'main.css'%}">
+  </head>
+  <body>
+    <nav class="bang-nav">
+      <a href="#"><h3>Bangazon</h3></a>
+      <ul class="nav-list">
+        <li>
+          <a href="{% url 'Bangazon_api:product' %}">
+            <div class="nav-btn-left">
+              Sell a Product
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'Bangazon_api:product_type_list' %}">
+            <div class="nav-btn-left">
+              Product Types
+            </div>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav-list">
+        <li>
+          <a href="{% url 'Bangazon_api:logout' %}">
+            <div class="nav-btn-right">
+              Log In /<br>Log Out
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'Bangazon_api:order_detail' %}">
+            <div class="nav-btn-right">
+              My Cart<br>{% cart %} Items
+            </div>
+          </a>
+        </li>
+        <li class="nav-msg">
+          <div class="welcome">
+            {% welcome %}
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="main-body">
+      {% block content %}
+      {% endblock %}
+    </div>
+    <script type="text/javascript" src="{%static 'main.js'%}"></script>
+  </body>
+</html>

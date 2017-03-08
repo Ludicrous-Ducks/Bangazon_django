@@ -1,0 +1,11 @@
+{%extends 'Bangazon_api/index.html'%}
+{%block content%}
+<form class="" action="{%url 'Bangazon_api:product_type' %}" method="post">
+    {%csrf_token %}
+    <br>
+    <input type='text' name='label' value='' placeholder='label'>
+    <br>
+
+    <button type='submit'>Submit</button>
+</form>
+{%endblock%}
